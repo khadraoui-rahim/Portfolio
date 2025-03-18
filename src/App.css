@@ -1168,3 +1168,297 @@ html {
   transform: translateY(-50%) scale(1.1);
   box-shadow: 0 0 15px rgba(88, 86, 214, 0.3), 0 0 30px rgba(0, 122, 255, 0.2);
 }
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+  .main-container {
+    width: 90%;
+  }
+
+  .dashboard-container {
+    max-width: 95%;
+  }
+
+  .panels-container {
+    height: 380px;
+  }
+
+  .panel.expanded {
+    width: 280px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-container {
+    width: 95%;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .left-section {
+    padding: 30px;
+  }
+
+  .right-section {
+    height: 300px;
+  }
+
+  .glass-panel {
+    width: 95%;
+    padding: 30px;
+  }
+
+  .glass-panel h1 {
+    font-size: 2rem;
+  }
+
+  .contact-container,
+  .table-container,
+  .video-container {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .dashboard-container {
+    padding: 15px 20px 30px;
+  }
+
+  .dashboard-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  .panels-container {
+    height: 340px;
+  }
+
+  .panel.expanded {
+    width: 260px;
+  }
+
+  .panel-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .panel-content p {
+    font-size: 0.9rem;
+  }
+
+  .nav-number {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  .nav-number.video-tab,
+  .nav-number.table-tab {
+    min-width: 70px;
+  }
+
+  .nav-number.contact-tab {
+    min-width: 90px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .App {
+    padding: 10px;
+  }
+
+  .glass-panel h1 {
+    font-size: 1.8rem;
+  }
+
+  .glass-panel p {
+    font-size: 1rem;
+  }
+
+  .social-nav {
+    gap: 15px;
+    padding: 12px;
+  }
+
+  .social-icon-container {
+    width: 35px;
+    height: 35px;
+  }
+
+  .social-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .greeting-text {
+    font-size: 1.1rem;
+  }
+
+  .left-section h1 {
+    font-size: 1.8rem;
+  }
+
+  .bio {
+    font-size: 0.95rem;
+  }
+
+  .skills-section h2 {
+    font-size: 1.1rem;
+  }
+
+  .skills-section li {
+    font-size: 0.9rem;
+  }
+
+  .contact-container h1,
+  .table-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .contact-intro {
+    font-size: 1rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 0.9rem;
+    padding: 10px 12px;
+  }
+
+  .submit-button {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+
+  .panels-container {
+    height: 300px;
+  }
+
+  .panel {
+    width: 50px;
+  }
+
+  .panel.expanded {
+    width: 240px;
+  }
+
+  .panel-collapsed {
+    width: 50px;
+  }
+
+  .panel-expanded {
+    left: 50px;
+    width: calc(100% - 50px);
+    padding: 20px;
+  }
+
+  .vertical-text {
+    font-size: 1rem;
+  }
+
+  .chevron-next,
+  .chevron-prev {
+    width: 40px;
+    height: 40px;
+  }
+
+  .chevron-next svg,
+  .chevron-prev svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Handle very small screens */
+@media screen and (max-width: 320px) {
+  .main-container {
+    width: 100%;
+  }
+
+  .glass-panel {
+    padding: 20px;
+  }
+
+  .glass-panel h1 {
+    font-size: 1.6rem;
+  }
+
+  .nav-number {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+
+  .nav-number.video-tab,
+  .nav-number.table-tab {
+    min-width: 60px;
+  }
+
+  .nav-number.contact-tab {
+    min-width: 80px;
+  }
+
+  .panel.expanded {
+    width: 220px;
+  }
+
+  .panel-content h2 {
+    font-size: 1.3rem;
+  }
+
+  .panel-content p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Handle landscape orientation on mobile */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .App {
+    height: auto;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  .main-container {
+    margin-top: 20px;
+  }
+
+  .right-section {
+    height: 250px;
+  }
+
+  .panels-container {
+    height: 280px;
+  }
+
+  .panel-content {
+    padding: 15px;
+  }
+
+  .panel-content h2 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+
+  .panel-content p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+}
+
+/* Handle high-DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+
+  .glass-panel,
+  .main-container,
+  .contact-container,
+  .table-container,
+  .video-container,
+  .dashboard-container {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+}
