@@ -7,7 +7,9 @@ function App() {
   const [greeting, setGreeting] = useState('');
   const [showEmptyPage, setShowEmptyPage] = useState(false);
   const [expandedPanel, setExpandedPanel] = useState(null); // No panel expanded by default
+  const [showScrollButton, setShowScrollButton] = useState(false);
   const emptyPageRef = useRef(null);
+  const contentAreaRef = useRef(null);
 
   // Form state
   const [formData, setFormData] = useState({
@@ -57,6 +59,20 @@ function App() {
       emptyPageRef.current.classList.remove('slide-in');
     }
   }, [showEmptyPage]);
+
+  // Handle scroll events to show/hide the scroll button
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollButton(true);
+      } else {
+        setShowScrollButton(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleNavClick = (containerNumber) => {
     setActiveContainer(containerNumber);
@@ -147,8 +163,16 @@ function App() {
     setExpandedPanel(null); // Set to null to collapse all panels
   };
 
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
-    <div className="App">
+    <div className="App" ref={contentAreaRef}>
       <div className="background">
         <div className="gradient-accent top-left"></div>
         <div className="gradient-accent bottom-right"></div>
@@ -608,6 +632,13 @@ function App() {
           </div>
         </div>
       )}
+
+      {/* Scroll to top button */}
+      <div className={`scroll-top-button ${showScrollButton ? 'visible' : ''}`} onClick={scrollToTop}>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 19V5M5 12l7-7 7 7" />
+        </svg>
+      </div>
     </div>
   );
 }

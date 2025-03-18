@@ -9,19 +9,22 @@ body,
 html {
   height: 100%;
   width: 100%;
+  overflow-x: hidden;
 }
 
 .App {
   text-align: center;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   background-color: #0a0a0a;
   color: white;
+  padding-bottom: 30px;
 }
 
 .background {
@@ -714,9 +717,12 @@ html {
   position: absolute;
   width: 100%;
   height: 100%;
+  min-height: 100vh;
   transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
   z-index: 2;
   transform: translateX(0);
+  overflow-y: auto;
+  padding-bottom: 40px;
 }
 
 .content-area.slide-out {
@@ -1460,5 +1466,61 @@ html {
   .dashboard-container {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+  }
+}
+
+/* Scroll to top button */
+.scroll-top-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  background: rgba(20, 20, 20, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+}
+
+.scroll-top-button.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top-button svg {
+  width: 20px;
+  height: 20px;
+  color: white;
+}
+
+.scroll-top-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(88, 86, 214, 0.3), 0 0 30px rgba(0, 122, 255, 0.2);
+}
+
+@media screen and (max-width: 480px) {
+  .scroll-top-button {
+    width: 40px;
+    height: 40px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .scroll-top-button svg {
+    width: 18px;
+    height: 18px;
   }
 }
